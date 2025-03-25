@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 import { server, app, io } from "./socket/socket.js";
 dotenv.config();
 // mongoose connect
@@ -17,8 +18,17 @@ mongoose
 // server start
 // const app = express();
 
+
+
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(cors({
+  origin: "https://rapid-backend-wkyh.vercel.app/",
+  methods: "PUT,GET,UPDATE,POST,PATCH,DELETE,HEAD",
+  credentials: true,
+}));
+
 
 const PORT = process.env.PORT || 3000;
 
