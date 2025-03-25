@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-  origin: "https://rapid-backend-wkyh.vercel.app/",
+  origin: "*",
   methods: "PUT,GET,UPDATE,POST,PATCH,DELETE,HEAD",
   credentials: true,
 }));
